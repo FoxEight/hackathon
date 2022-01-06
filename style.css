@@ -15,3 +15,8 @@ button.current {
 .btn-div {
   width: 50px;
 }
+
+.replacement-span {
+  color: red;
+  background-color: gray;
+}

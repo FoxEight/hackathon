@@ -45,23 +45,52 @@ function doStuff() {
   ];
   console.log(textArr);
   for (const elArray of textArr) {
+    console.log(elArray);
     for (const indEl of elArray) {
-      if (/this/.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/this/gi, keywords.this);
+      const newSpan = document.createElement('span');
+      // newSpan.setAttribute('class', 'replacement-span');
+
+      if (/this/.test(indEl.innerText)) {
+        // newSpan.innerText = 'THE THIS KEYWORD';
+        let strToMutate = indEl.innerText;
+        strToMutate = strToMutate.replace(
+          /this/gi,
+          '<span class="replacement-span" style="color:red;background-color:gray">THE THIS KEYWORD</span>'
+        );
+        indEl.innerHTML = strToMutate;
+        // indEl.innerHTML = indEl.innerText.replace(
+        //   /this/gi,
+        //   '<span class="replacement-span">THE THIS KEYWORD</span>'
+        // );
+        console.log(indEl);
+      }
+
       if (/for/.test(indEl.innerText))
         indEl.innerText = indEl.innerText.replace(/for/gi, keywords.for);
       if (/while/.test(indEl.innerText))
         indEl.innerText = indEl.innerText.replace(/while/gi, keywords.while);
       if (/new/.test(indEl.innerText))
         indEl.innerText = indEl.innerText.replace(/new/gi, keywords.new);
-      if (/\.{3}/.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/\.{3}/gi, 'REST PARAMETER');
-      if (/\./.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/\./gi, 'PROP SELECTOR');
+      if (/\.{3}/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerText;
+        strToMutate = strToMutate.replace(
+          /this/gi,
+          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">REST PARAMETER</span>'
+        );
+        indEl.innerHTML = strToMutate;
+
+        // indEl.innerText = indEl.innerText.replace(/\.{3}/gi, 'REST PARAMETER');
+      }
+
+      if (/\./.test(indEl.innerText)) {
+        indEl.innerHTML = indEl.innerText.replace(
+          /\./gi,
+          '<span class="replacement-span" style="color:red;background-color:gray;font-family: Courier">PROP SELECTOR</span>'
+        );
+        // indEl.innerText = indEl.innerText.replace(/\./gi, 'PROP SELECTOR');
+      }
       if (/#/.test(indEl.innerText))
         indEl.innerText = indEl.innerText.replace(/#/gi, 'THE MF OCTOTHORPE');
-      if (/the/.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/the/gi, `👾`);
     }
   }
 }
