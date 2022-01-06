@@ -6,5 +6,18 @@
   "background": {
     "service_worker": "background.js"
   },
-  "permissions": ["storage"]
+  "permissions": ["storage", "activeTab", "scripting"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "/assets/this.jpg",
+      "32": "/assets/this.jpg",
+      "48": "/assets/this.jpg"
+    },
+    "icons": {
+      "16": "/assets/this.jpg",
+      "32": "/assets/this.jpg",
+      "48": "/assets/this.jpg"
+    }
+  }
 }
