@@ -51,11 +51,10 @@ function doStuff() {
       // newSpan.setAttribute('class', 'replacement-span');
 
       if (/this/.test(indEl.innerText)) {
-        // newSpan.innerText = 'THE THIS KEYWORD';
         let strToMutate = indEl.innerText;
         strToMutate = strToMutate.replace(
           /this/gi,
-          '<span class="replacement-span" style="color:red;background-color:gray">THE THIS KEYWORD</span>'
+          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">THE THIS KEYWORD</span>'
         );
         indEl.innerHTML = strToMutate;
         // indEl.innerHTML = indEl.innerText.replace(
@@ -65,16 +64,34 @@ function doStuff() {
         console.log(indEl);
       }
 
-      if (/for/.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/for/gi, keywords.for);
-      if (/while/.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/while/gi, keywords.while);
-      if (/new/.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/new/gi, keywords.new);
+      if (/for/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerText;
+        strToMutate = strToMutate.replace(
+          /for/gi,
+          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">FOR LOOP</span>'
+        );
+        indEl.innerHTML = strToMutate;
+      }
+      if (/while/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerText;
+        strToMutate = strToMutate.replace(
+          /while/gi,
+          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">WHILE LOOP</span>'
+        );
+        indEl.innerHTML = strToMutate;
+      }
+      if (/new/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerText;
+        strToMutate = strToMutate.replace(
+          /new/gi,
+          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">NEW INSTANTIATION</span>'
+        );
+        indEl.innerHTML = strToMutate;
+      }
       if (/\.{3}/.test(indEl.innerText)) {
         let strToMutate = indEl.innerText;
         strToMutate = strToMutate.replace(
-          /this/gi,
+          /\.{3}/gi,
           '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">REST PARAMETER</span>'
         );
         indEl.innerHTML = strToMutate;
