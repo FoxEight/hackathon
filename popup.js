@@ -92,7 +92,7 @@ function doStuff() {
         let strToMutate = indEl.innerText;
         strToMutate = strToMutate.replace(
           /\.{3}/gi,
-          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">REST PARAMETER</span>'
+          '<div class="replacement-div" style="border-radius: 5px"><span class="replacement-span" style="display: inline-block; color:red; background-color:gray; font-family: Courier; padding: 1px 5px">REST PARAMETER</span>'
         );
         indEl.innerHTML = strToMutate;
 
@@ -102,7 +102,7 @@ function doStuff() {
       if (/\./.test(indEl.innerText)) {
         indEl.innerHTML = indEl.innerText.replace(
           /\./gi,
-          '<span class="replacement-span" style="color:red;background-color:gray;font-family: Courier">PROP SELECTOR</span>'
+          ' <div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:gray"><span class="replacement-span" style="color:red; font-family: Courier">PROP SELECTOR</span></div>'
         );
         // indEl.innerText = indEl.innerText.replace(/\./gi, 'PROP SELECTOR');
       }
