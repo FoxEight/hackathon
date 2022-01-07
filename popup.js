@@ -47,52 +47,14 @@ function doStuff() {
   for (const elArray of textArr) {
     console.log(elArray);
     for (const indEl of elArray) {
-      const newSpan = document.createElement('span');
+      // const newSpan = document.createElement('span');
       // newSpan.setAttribute('class', 'replacement-span');
 
-      if (/this/.test(indEl.innerText)) {
-        let strToMutate = indEl.innerText;
-        strToMutate = strToMutate.replace(
-          /this/gi,
-          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">THE THIS KEYWORD</span>'
-        );
-        indEl.innerHTML = strToMutate;
-        // indEl.innerHTML = indEl.innerText.replace(
-        //   /this/gi,
-        //   '<span class="replacement-span">THE THIS KEYWORD</span>'
-        // );
-        console.log(indEl);
-      }
-
-      if (/for/.test(indEl.innerText)) {
-        let strToMutate = indEl.innerText;
-        strToMutate = strToMutate.replace(
-          /for/gi,
-          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">FOR LOOP</span>'
-        );
-        indEl.innerHTML = strToMutate;
-      }
-      if (/while/.test(indEl.innerText)) {
-        let strToMutate = indEl.innerText;
-        strToMutate = strToMutate.replace(
-          /while/gi,
-          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">WHILE LOOP</span>'
-        );
-        indEl.innerHTML = strToMutate;
-      }
-      if (/new/.test(indEl.innerText)) {
-        let strToMutate = indEl.innerText;
-        strToMutate = strToMutate.replace(
-          /new/gi,
-          '<span class="replacement-span" style="color:red; background-color:gray; font-family: Courier">NEW INSTANTIATION</span>'
-        );
-        indEl.innerHTML = strToMutate;
-      }
       if (/\.{3}/.test(indEl.innerText)) {
         let strToMutate = indEl.innerText;
         strToMutate = strToMutate.replace(
           /\.{3}/gi,
-          '<div class="replacement-div" style="border-radius: 5px"><span class="replacement-span" style="display: inline-block; color:red; background-color:gray; font-family: Courier; padding: 1px 5px">REST PARAMETER</span>'
+          '<div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:#D3D3D3"><span class="replacement-span" style="color:#FFA500; font-family: Courier">REST PARAMETER</span></div>'
         );
         indEl.innerHTML = strToMutate;
 
@@ -100,14 +62,52 @@ function doStuff() {
       }
 
       if (/\./.test(indEl.innerText)) {
-        indEl.innerHTML = indEl.innerText.replace(
-          /\./gi,
-          ' <div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:gray"><span class="replacement-span" style="color:red; font-family: Courier">PROP SELECTOR</span></div>'
+        let strToMutate = indEl.innerHTML;
+        strToMutate = strToMutate.replace(
+          /\./g,
+          '<div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:#D3D3D3"><span class="replacement-span" style="color:#A020F0; font-family: Courier">PROP SELECTOR</span></div>'
         );
-        // indEl.innerText = indEl.innerText.replace(/\./gi, 'PROP SELECTOR');
+        indEl.innerHTML = strToMutate;
       }
-      if (/#/.test(indEl.innerText))
-        indEl.innerText = indEl.innerText.replace(/#/gi, 'THE MF OCTOTHORPE');
+
+      if (/this/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerText;
+        strToMutate = strToMutate.replace(
+          /this/gi,
+          '<div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:#D3D3D3"><span class="replacement-span" style="color:#191970; font-family: Courier">the THIS keyword</span></div>'
+        );
+        indEl.innerHTML = strToMutate;
+
+        // console.log(indEl);
+      }
+
+      if (/for/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerHTML;
+        strToMutate = strToMutate.replace(
+          /for/gi,
+          '<div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:#D3D3D3"><span class="replacement-span" style="color:#FF1493; font-family: Courier">FOR loop</span></div>'
+        );
+        indEl.innerHTML = strToMutate;
+      }
+      if (/while/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerHTML;
+        strToMutate = strToMutate.replace(
+          /while/gi,
+          '<div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:#D3D3D3"><span class="replacement-span" style="color:#FF1493; font-family: Courier">WHILE loop</span></div>'
+        );
+        indEl.innerHTML = strToMutate;
+      }
+      if (/new/.test(indEl.innerText)) {
+        let strToMutate = indEl.innerText;
+        strToMutate = strToMutate.replace(
+          /new/i,
+          '<div class="replacement-div" style="display: inline; border-radius: 5px; padding: 1px 5px; background-color:#D3D3D3"><span class="replacement-span" style="color:#228B22; font-family: Courier">the NEW keyword</span></div>'
+        );
+        indEl.innerHTML = strToMutate;
+      }
+
+      // if (/#/.test(indEl.innerText))
+      //   indEl.innerText = indEl.innerText.replace(/#/gi, 'THE MF OCTOTHORPE');
     }
   }
 }
